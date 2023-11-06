@@ -1,1 +1,28 @@
+body {
+    background-color: darkred;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: solid 1px red;
+    width: 673px;
+    
+}
+
+.cell {
+    border: solid 1px yellow;
+    height: 40px;
+    width: 40px;
+}
+
+h1 {
+    font-family: 'Rowdies', sans-serif;
+    font-size: 60px;
+    
+}
