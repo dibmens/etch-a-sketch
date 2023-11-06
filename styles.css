@@ -6,7 +6,13 @@ body {
     align-items: center;
 }
 
+#btn {
+    background-color: firebrick;
+    font-weight: 900;
+}
+
 #container {
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -16,9 +22,14 @@ body {
 }
 
 .cell {
-    border: solid 1px yellow;
+    border: solid 1px darkred;
     height: 40px;
     width: 40px;
+    background-color: firebrick;
+}
+
+.ink{
+    background-color: black;
 }
 
 h1 {
