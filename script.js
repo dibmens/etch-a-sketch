@@ -1,26 +1,34 @@
 let container = document.querySelector('#container');
 let button = document.querySelector('#btn');
+let containerSize = container.offsetWidth-2;
+let cells;
+let grid;
 
-function spawnGrid(size = 16){
+
+function spawnGrid(size){
+    if(size > 100) size = 100;
 
     for(i = 0; i < size*size; i++ ){
-    let cell = document.createElement('div');
-    container.append(cell);
-    cell.className = 'cell';
+    cells = document.createElement('div');
+    container.append(cells);
+    cells.className = 'cell';
     }
+
+    grid = document.querySelectorAll('.cell');
+
+    grid.forEach((square) => {
+        square.style.height = `${(containerSize-size*2)/size}px`;
+        square.style.width = `${(containerSize-size*2)/size}px`;
+        square.addEventListener('mousemove', ()=>{
+        square.classList.add('ink');      
+    })});
 }
 
-spawnGrid();
-
-let grid = document.querySelectorAll('.cell');
-
-// container.addEventListener('mouseenter', ()=> container.classList.add('ink'));
-
 button.addEventListener('click', ()=>{
+    grid.forEach((square) => square.remove());
 
-    let oldGrid = document.querySelectorAll('.cell');
-    grid.remove();
-
-    let size = prompt('Enter your preferred grid size (4x4-20x20)',16);
+    let size = prompt('Set your desired resolution (100 Max)', 16);
     spawnGrid(size);
-})
+});
+
+spawnGrid(16);
