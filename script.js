@@ -20,27 +20,36 @@ function spawnGrid(size){
     grid.forEach((square) => {
         square.style.height = `${(containerSize-size*2)/size}px`;
         square.style.width = `${(containerSize-size*2)/size}px`;
+
         let alpha = 1;
+
         square.addEventListener('mouseover', ()=>{
-        // square.classList.add('ink');
-        
         alpha += 1; 
-        square.style.backgroundColor = `rgba(0,0,0,${alpha/10})`;
-        
-        
-        buttonColor.addEventListener('click', ()=>{
+
+        if ( buttonColor.textContent == 'COLOR' ){
+            square.style.backgroundColor = `rgba(0,0,0,${alpha/10})`;
+        } else {
             square.style.backgroundColor = 
             `rgba(${rnd(10,255)}, ${rnd(10,255)}, ${rnd(10,255)}, ${alpha/10} )`;
-        });
-        
+        };
+    
     })});
 }
 
 buttonErase.addEventListener('click', ()=>{
     grid.forEach((square) => square.remove());
-
     let size = prompt('Set your desired resolution (100 Max)', 16);
     spawnGrid(size);
+});
+
+buttonColor.addEventListener('click', ()=> {
+    if (buttonColor.textContent == 'COLOR'){
+        buttonColor.textContent = 'BLACK';
+        buttonColor.classList.add('toggled');
+    } else {
+        buttonColor.textContent = 'COLOR';
+        buttonColor.classList.remove('toggled');
+    };
 });
 
 spawnGrid(16);

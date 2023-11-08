@@ -32,8 +32,12 @@ body {
     height: 80px;
     width: 80px;
     font-weight: 900;
-    box-shadow: 0px 5px black;
-    
+    box-shadow: 0px 5px black;    
+}
+
+.toggled {
+    background-color: rgb(238, 230, 230);
+    box-shadow: 0px -5px black;
 }
 
 #title {
@@ -68,8 +72,4 @@ body {
     width: 41.75px;
     height: 41.75px;
     background-color: lightslategray;
-}
-
-.ink{
-    background-color: black;
 }
